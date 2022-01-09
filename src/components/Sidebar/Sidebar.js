@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import MuiDrawer from '@mui/material/Drawer';
+import Drawer from '@mui/material/Drawer';
+import CssBaseline from '@mui/material/CssBaseline';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
@@ -9,68 +10,80 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
+import { makeStyles } from '@mui/styles';
 
-import { Avatar } from '@mui/material';
-import { ListItemButton } from '@mui/material';
+import { Grid, ListItemButton } from '@mui/material';
+import myLogoPng from "../../assets/images/cslogo.png"
+import myPlayPng from "../../assets/images/play.png"
+import myInventoryPng from "../../assets/images/inventory.png"
+import myWhitepaperPng from "../../assets/images/whitepaper.png"
+import myCooperationPng from "../../assets/images/cooperation.png"
+import myDonatePng from "../../assets/images/donate.png"
 
-import {} from "../../assets/images/logo.png"
-const drawerWidth = 100;
+const useStyles = makeStyles({
+  paper: {
+    background: 'black',
+    color: 'red'
+  }
+});
 
-const Drawer = styled(MuiDrawer, {})(
-    ({ theme}) => ({
-      width: drawerWidth,
-      flexShrink: 0,
-      whiteSpace: 'nowrap',
-      boxSizing: 'border-box',
-    }),
-  );
+const DrawerHeader = styled('div')(({ theme }) => ({
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+  padding: theme.spacing(0, 1),
+  height: '100%',
+}));
 
+const Sidebar = props => {
 
-export default function MiniDrawer() {
-  const theme = useTheme();
+  const styles = useStyles();
 
   return (
+
     <Box sx={{ display: 'flex' }}>
-      <Drawer variant="permanent">
-        <Divider />
-        <List>
-            <ListItemButton component="a" href="#simple-list">
-                {/* <ListItemText primary="Logo" /> */}
-                {/* <Avatar alt="wemy Sharp" src = "../../assets/images/logo.png" /> */}
-                <Avatar.Image source={require("../../assets/images/logo.png")} size={50} />
-            </ListItemButton>
-        </List>
-        <Divider />
-      </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-          tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-          sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-          tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-          gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-          et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-          tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
-      </Box>
+        <Box variant="permanent" className='m_blur'>
+            <List >
+              <ListItemButton component="a" href="#simple-list" justifycontent='center'>
+                <img className="listitem_logoimg" src={myLogoPng}/>
+              </ListItemButton>
+            </List>
+            <hr style={{opacity: 0.5}}/>
+            <List >
+              <ListItemButton component="a" href="#simple-list" justifycontent='center'>
+                <img className="listitem_img" src={myPlayPng} />
+              </ListItemButton>
+            </List>
+            <hr style={{opacity: 0.5}}/>
+            <List >
+              <ListItemButton component="a" href="#simple-list" justifycontent='center'>
+                <img className="listitem_img" src={myInventoryPng}/>
+              </ListItemButton>
+            </List>
+            <List >
+              <ListItemButton component="a" href="#simple-list" justifycontent='center'>
+                <img className="listitem_img" src={myWhitepaperPng} />
+              </ListItemButton>
+            </List>
+            <List >
+              <ListItemButton component="a" href="#simple-list" justifycontent='center'>
+                <img className="listitem_img" src={myCooperationPng} />
+              </ListItemButton>
+            </List>
+            <List >
+              <ListItemButton component="a" href="#simple-list" alignItems='center'>
+                <img className="listitem_img" src={myDonatePng}  />
+              </ListItemButton>
+            </List>
+            <div className='fixed-bottom'>
+              <Typography paragraph  style={{opacity: 0.5, color: 'white'}}>
+                CSGO Token © 2022
+              </Typography>
+            </div>
+        </Box>
     </Box>
+
+
   );
 }
+
+export default Sidebar;
