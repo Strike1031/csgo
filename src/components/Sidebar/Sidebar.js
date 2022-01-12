@@ -1,18 +1,11 @@
 import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import CssBaseline from '@mui/material/CssBaseline';
 import List from '@mui/material/List';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { makeStyles } from '@mui/styles';
 
-import { Grid, ListItemButton } from '@mui/material';
+import { ListItemButton } from '@mui/material';
 import myLogoPng from "../../assets/images/cslogo.png"
 import myPlayPng from "../../assets/images/play.png"
 import myInventoryPng from "../../assets/images/inventory.png"
@@ -43,34 +36,34 @@ const Sidebar = props => {
     <Box sx={{ display: 'flex' }}>
         <Box variant="permanent" className='m_blur'>
             <List >
-              <ListItemButton component="a" href="#simple-list" justifycontent='center'>
+              <ListItemButton component="a" href="#simple-list">
                 <img className="listitem_logoimg" src={myLogoPng}/>
               </ListItemButton>
             </List>
             <hr style={{opacity: 0.5}}/>
             <List >
-              <ListItemButton component="a" href="#simple-list" justifycontent='center'>
+              <ListItemButton component="a" href="#simple-list">
                 <img className="listitem_img" src={myPlayPng} />
               </ListItemButton>
             </List>
             <hr style={{opacity: 0.5}}/>
             <List >
-              <ListItemButton component="a" href="#simple-list" justifycontent='center'>
+              <ListItemButton component="a" href="#simple-list" >
                 <img className="listitem_img" src={myInventoryPng}/>
               </ListItemButton>
             </List>
             <List >
-              <ListItemButton component="a" href="#simple-list" justifycontent='center'>
+              <ListItemButton component="a" href="#simple-list" >
                 <img className="listitem_img" src={myWhitepaperPng} />
               </ListItemButton>
             </List>
             <List >
-              <ListItemButton component="a" href="#simple-list" justifycontent='center'>
+              <ListItemButton component="a" href="#simple-list">
                 <img className="listitem_img" src={myCooperationPng} />
               </ListItemButton>
             </List>
             <List >
-              <ListItemButton component="a" href="#simple-list" alignItems='center'>
+              <ListItemButton component="a" href="#simple-list">
                 <img className="listitem_img" src={myDonatePng}  />
               </ListItemButton>
             </List>
@@ -81,8 +74,6 @@ const Sidebar = props => {
             </div>
         </Box>
     </Box>
-
-
   );
 }
 
