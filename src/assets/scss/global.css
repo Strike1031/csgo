@@ -1,13 +1,21 @@
 /* This is for second part */
+.href-image {
+    color: #ff9f08;
+    text-decoration: none;
+    font-weight: bold;
+}
 
+.href-image:hover {
+    color: white
+}
 /* This is for main part */
-.m_blur {
+.m-blur {
     background-color: rgba(0,0,0,0.2);
     backdrop-filter: blur(50px);
     height: 100vh;
 }
 
-.m_blur_part {
+.m-blur-part {
     background-color: rgba(0,0,0,0.2);
     backdrop-filter: blur(50px);
 }

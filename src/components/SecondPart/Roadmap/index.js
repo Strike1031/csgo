@@ -65,7 +65,7 @@ export default function Roadmap() {
         <Box sx={{ maxWidth: 400 }}>
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (
-                    <Step key={step.label}>
+                    <Step key={step}>
                         <StepLabel
                             optional={
                                 index === 2 ? (

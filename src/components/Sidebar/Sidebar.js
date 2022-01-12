@@ -34,7 +34,7 @@ const Sidebar = props => {
   return (
 
     <Box sx={{ display: 'flex' }}>
-        <Box variant="permanent" className='m_blur'>
+        <Box variant="permanent" className='m-blur'>
             <List >
               <ListItemButton component="a" href="#simple-list">
                 <img className="listitem_logoimg" src={myLogoPng}/>

@@ -5,23 +5,108 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import React from 'react';
+import ReactDOM from "react-dom";
 import { makeStyles } from '@mui/styles';
 import Roadmap from '../SecondPart/Roadmap/index'
 import { fontWeight } from '@mui/system';
+// import { Chart } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
+
+import { Chart, ArcElement } from 'chart.js'
+import 'chart.js/auto';
+
 import '../../assets/scss/index_SecondPart.css'
 
 import nftImage_1 from '../../assets/images/nft/1.png';
 import nftImage_2 from '../../assets/images/nft/2.png';
 import nftImage_3 from '../../assets/images/nft/3.png';
 import nftImage_4 from '../../assets/images/nft/4.png';
+import bscscanLogoSvg from '../../assets/images/logo-bscscan.svg';
+import { yellow } from '@mui/material/colors';
+
+const my_nftImages = [nftImage_1, nftImage_2, nftImage_3, nftImage_4];
+
+
+const my_chart_options = {
+    responsive: true,
+    //cutoutPercentage: 60,
+    // animation: {
+    //   animateScale: true
+    // },
+    // circumference: 1.5 * Math.PI,
+    rotation: 173 * Math.PI,
+
+    plugins: {
+        legend: {
+            display: false,
+        },
+    }
+    // options: {
+    //     plugins: {
+    //         tooltip: {
+    //             // callbacks: {
+    //             //     label: function (tooltipItem, data) {
+
+    //             //         let label =
+    //             //             (data.datasets[tooltipItem.datasetIndex].labels &&
+    //             //                 data.datasets[tooltipItem.datasetIndex].labels[
+    //             //                 tooltipItem.index
+    //             //                 ]) ||
+    //             //             data.labels[tooltipItem.index] ||
+    //             //             "";
+    //             //         if (label) {
+    //             //             label += ": ";
+    //             //         }
+
+    //             //         // Apply the value and suffix
+    //             //         label +=
+    //             //             data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] +
+    //             //             (data.datasets[tooltipItem.datasetIndex].labelSuffix || "");
+
+    //             //         label = "as";
+    //             //         return label;
+    //             //     },
+    //             // }
+    //         }
+    //     }
+    // }
+};
+
+const my_chart_data = {
+    datasets: [{
+        data: [40, 10, 15, 16, 20],
+        backgroundColor: ["rgb(43,87,151)", "rgb(255,159,8)", "rgb(185,29,71)", "rgb(0,171,169)", "rgb(38,138,255)"],
+        // These labels and labelSuffix use the custom tooltips callbacks
+        // They will also not trigger the legend
+        label: '',
+        // labelSuffix: "%",
+        // pointStyle: "circle"
+    }],
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+    labels: ["Community (Pre-sales)", "Liquidity for Exchanges", "Team and advisors", "Business and development", "Partnership"],
+};
+
+function NftImageList(props) {
+    const myLists = props.myListImages;
+    const listItems = myLists.map((myList) =>
+        <Grid item xs={6} md={3} key={myList}>
+            <img src={myList} width={'90%'} />
+        </Grid>
+    );
+    return (
+        <Grid container >
+            {listItems}
+        </Grid>
+    );
+}
 
 function switchTabPalel_1(index, children) {
     switch (index) {
         case 0:
             return (
                 <Box sx={{ p: 3 }}>
-                    <Box style={{ height: '400px', marginBottom: '30px' }}>
-                        <iframe src="https://www.youtube-nocookie.com/embed/wP1MAHJod3Q" width='100%' height='100%' title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                    <Box style={{ marginBottom: '30px' }}>
+                        <iframe src="https://www.youtube-nocookie.com/embed/wP1MAHJod3Q" width='66%' height='300px' title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                     </Box>
                     <Typography style={{ color: 'white', textAlign: 'left' }}>{children}</Typography>
                 </Box>
@@ -41,9 +126,12 @@ function switchTabPalel_1(index, children) {
                 <Box sx={{ p: 3 }}>
                     <Typography style={{ color: 'white', textAlign: 'left' }}>Our team intends to enable users to design their own items such as Skins, Gloves, Agents, ... and sell them as a non-fungible token.</Typography>
                     <Box style={{ width: '100%', textAlign: 'left' }}>
-                        <a href='https://opensea.io/csgotoken' style={{ color: '#ff9f08', textDecoration: 'none', fontWeight: 'bold' }}>View on Opensea</a>
+                        <a href='https://opensea.io/csgotoken' className='href-image'>View on Opensea</a>
                     </Box>
-                    <Grid container >
+                    {/* Map function */}
+                    <NftImageList myListImages={my_nftImages} />
+                    {/* <Grid container >
+
                         <Grid item xs={6} md={3}>
                             <img src={nftImage_1} />
                         </Grid>
@@ -56,26 +144,62 @@ function switchTabPalel_1(index, children) {
                         <Grid item xs={6} md={3}>
                             <img src={nftImage_4} />
                         </Grid>
-                    </Grid>
+                    </Grid> */}
                 </Box>
             );
         case 4:
             return (
-                <Box sx={{ p: 3 }}>
-                    <Typography style={{ color: 'white', textAlign: 'left' }}>{children}</Typography>
+                <Box>
+                    <Grid container style={{ display: 'flex', justifyContent: 'center' }}>
+                        <Box style={{ width: '50%' }} id="chartJSContainer">
+                            <Doughnut data={my_chart_data} options={my_chart_options} />
+                        </Box>
+                    </Grid>
+                    <Grid container>
+                        <Grid item md={6} lg={6} xs={6}>
+                            <Box style={{display: 'flex', justifyContent: 'center'}}>
+                                <Typography style={{color: '#ff9f08'}}>Total supply : {"   "}</Typography>
+                                <Typography style={{color: 'white'}}>100/000/000/000</Typography>
+                            </Box>
+                        </Grid>
+                        <Grid item md={6} lg={6} xs={6}>
+                            <Box style={{display: 'flex', justifyContent: 'center'}}>
+                                <Typography style={{color: '#ff9f08'}}>Max supply :{"   "}</Typography>
+                                <Typography style={{color: 'white'}}>100/000/000/000</Typography>
+                            </Box>
+                        </Grid>
+                    </Grid>
                 </Box>
+
+
             );
         case 5:
             return (
-                <Box sx={{ p: 3 }}>
-                    <Typography style={{ color: 'white', textAlign: 'left' }}>{children}</Typography>
+                <Box sx={{ p: 3 }} style={{textAlign: 'left'}}>
+                    <Typography style={{color: '#ff9f08', fontWeight: 'bold', fontSize: '18px'}}>Private Sale and Public Sale :</Typography>
+                    
                 </Box>
+
             );
         case 6:
             return (
                 <Box sx={{ p: 3 }}>
+                    <Grid container xs={12} md={12}>
+                        <Grid item xs={3} md={3}>
+                            <a href='https://bscscan.com/'>
+                                <img src={bscscanLogoSvg} style={{ maxWidth: '100%', maxHeight: '100%' }} />
+                            </a>
+                        </Grid>
+                    </Grid>
+
+                </Box>
+            );
+        case 7:
+            return (
+                <Box sx={{ p: 3 }}>
                     <Typography style={{ color: 'white', textAlign: 'left' }}>{children}</Typography>
                 </Box>
+
             );
         default:
             return;
@@ -209,7 +333,7 @@ const SecondPart = () => {
 
     return (
         <Grid container item xs={12} md={12} >
-            <Grid item xs={6} md={12} className='m_blur_part' style={{ height: '70%', marginTop: '15px' }}>
+            <Grid item xs={6} md={12} className='m-blur-part' style={{ height: '70%', marginTop: '15px' }}>
                 <Box sx={{ width: '100%' }}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                         <Tabs value={firstValue} onChange={handleChange} aria-label="basic tabs example">
@@ -220,6 +344,7 @@ const SecondPart = () => {
                             <Tab label={<span className={firstValue === 4 ? classes.activeTab : classes.customStyleOnTab}>Distribution</span>} {...a11yProps(4)} />
                             <Tab label={<span className={firstValue === 5 ? classes.activeTab : classes.customStyleOnTab}>Pre-sale</span>} {...a11yProps(5)} />
                             <Tab label={<span className={firstValue === 6 ? classes.activeTab : classes.customStyleOnTab}>Our Partners</span>} {...a11yProps(6)} />
+                            <Tab label={<span className={firstValue === 7 ? classes.activeTab : classes.customStyleOnTab}>Our Team</span>} {...a11yProps(7)} />
                         </Tabs>
                     </Box>
                     <TabPanel_1 value={firstValue} index={0}>
@@ -243,10 +368,13 @@ const SecondPart = () => {
                     <TabPanel_1 value={firstValue} index={6}>
                         Our Partners
                     </TabPanel_1>
+                    <TabPanel_1 value={firstValue} index={7}>
+                        Our Team
+                    </TabPanel_1>
                 </Box>
             </Grid>
             {/* Second Part Grid */}
-            <Grid item xs={6} md={12} className='m_blur_part' style={{ height: '24%' }}>
+            <Grid item xs={6} md={12} className='m-blur-part' style={{ height: '24%' }}>
                 <Box sx={{ width: '100%' }}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                         <Tabs value={SecondValue} onChange={handleSecondGridChange} aria-label="basic tabs example">
