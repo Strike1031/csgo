@@ -1,0 +1,16 @@
+.w-50 {
+    width: 50%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.customize_scrollbar::-webkit-scrollbar {
+    width: 10px;               /* width of the entire scrollbar */
+  }
+
+.customize_scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgb(187,187,187);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+  }

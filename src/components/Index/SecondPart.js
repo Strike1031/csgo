@@ -14,15 +14,17 @@ import { Doughnut } from 'react-chartjs-2';
 
 // import { Chart, ArcElement } from 'chart.js'
 import 'chart.js/auto';
-
+// /////////Only this part css import//////////
 import '../../assets/scss/index_SecondPart.css'
 
-//Material Images
+// Images
 import nftImage_1 from '../../assets/images/nft/1.png';
 import nftImage_2 from '../../assets/images/nft/2.png';
 import nftImage_3 from '../../assets/images/nft/3.png';
 import nftImage_4 from '../../assets/images/nft/4.png';
 import bscscanLogoSvg from '../../assets/images/logo-bscscan.svg';
+import logoGif from '../../assets/images/logo.gif';
+
 
 //    Material Iconts/
 import CheckIcon from '@mui/icons-material/Check';
@@ -52,21 +54,6 @@ import yu_Wang from '../../assets/images/team/yu-Wang.jpg';
 // Variables and functions
 const my_nftImages = [nftImage_1, nftImage_2, nftImage_3, nftImage_4];
 
-const my_chart_options = {
-    responsive: true,
-    //cutoutPercentage: 60,
-    // animation: {
-    //   animateScale: true
-    // },
-    // circumference: 1.5 * Math.PI,
-    rotation: 173 * Math.PI,
-
-    plugins: {
-        legend: {
-            display: false,
-        },
-    }
-};
 const my_presale_plan_data = [
     {
         title: 'Phase 1:',
@@ -132,11 +119,28 @@ function My_presale_plan(props) {
         </Box>
     );
 }
+///////////////////////////////Distribution Tab//////////////////
+
+const my_chart_options = {
+    responsive: true,
+    //cutoutPercentage: 60,
+    // animation: {
+    //   animateScale: true
+    // },
+    // circumference: 1.5 * Math.PI,
+    rotation: 190 * Math.PI,
+
+    plugins: {
+        legend: {
+            display: false,
+        },
+    }
+};
 
 const my_chart_data = {
     datasets: [{
-        data: [40, 10, 15, 16, 20],
-        backgroundColor: ["rgb(43,87,151)", "rgb(255,159,8)", "rgb(185,29,71)", "rgb(0,171,169)", "rgb(38,138,255)"],
+        data: [10, 10, 10, 5, 40, 10, 15],
+        backgroundColor: ["rgb(43,87,151)", "rgb(255,159,8)", "rgb(195,235,120)", "rgb(111,115,210)", "rgb(185,29,71)", "rgb(0,171,169)", "rgb(38,138,255)"],
         // These labels and labelSuffix use the custom tooltips callbacks
         // They will also not trigger the legend
         label: '',
@@ -144,7 +148,7 @@ const my_chart_data = {
         // pointStyle: "circle"
     }],
     // These labels appear in the legend and in the tooltips when hovering different arcs
-    labels: ["Community (Pre-sales)", "Liquidity for Exchanges", "Team and advisors", "Business and development", "Partnership"],
+    labels: ["Team", "Partners", "Exchanges Liquidity", "Platform Liquidity", "Pre-Sale and ICO( for Community )", "Bonus ( for Community )", "Business Development and Marketing"],
 };
 
 function NftImageList(props) {
@@ -163,6 +167,7 @@ function NftImageList(props) {
 
 function switchTabPalel_1(index, children) {
     switch (index) {
+        // About Us
         case 0:
             return (
                 <Box sx={{ p: 3 }}>
@@ -172,16 +177,19 @@ function switchTabPalel_1(index, children) {
                     <Typography style={{ color: 'white', textAlign: 'left' }}>{children}</Typography>
                 </Box>
             );
+        // News    
         case 1:
             return (
                 <Box sx={{ p: 3 }}>
                     <Typography style={{ color: 'black', textAlign: 'center' }}>{children}</Typography>
                 </Box>
             );
+        // Roadmap    
         case 2:
             return (
                 <Roadmap />
             );
+        // NFT    
         case 3:
             return (
                 <Box sx={{ p: 3 }}>
@@ -208,6 +216,7 @@ function switchTabPalel_1(index, children) {
                     </Grid> */}
                 </Box>
             );
+        //Distribution    
         case 4:
             return (
                 <Box>
@@ -234,14 +243,16 @@ function switchTabPalel_1(index, children) {
 
 
             );
+        //Pre-sale
         case 5:
             return (
                 <My_presale_plan mydata={my_presale_plan_data} />
             );
+        //Our Partners    
         case 6:
             return (
                 <Box sx={{ p: 3 }}>
-                    <Grid container xs={12} md={12}>
+                    <Grid container>
                         <Grid item xs={3} md={3} sm={3}>
                             <a href='https://bscscan.com/'>
                                 <img src={bscscanLogoSvg} style={{ maxWidth: '100%', maxHeight: '100%' }} />
@@ -252,21 +263,152 @@ function switchTabPalel_1(index, children) {
                 </Box>
             );
         case 7:
-            {/* It is unnecessary to use  <map> function---because ..*/}
+            // Our Team
+            {/* It is unnecessary to use  <map> function---because ..*/ }
             return (
                 <Box sx={{ p: 3 }}>
-                    <Grid container>
+                    <Grid container item >
                         {/* CEO and CTO */}
-                        <Grid container item x1={12} lg={12} sm={12} md={12} xs={12}>
-                            <Grid container item xl={3} lg={3} sm={6} md={6} xs={12}>
-                                <img src={nathen_Pruitt} class = "img-fitness"></img>
-                                <p style={{textAlign: 'center', fontWeight: '700', fontSize: '1.5rem'}}>Nathen Pruitt</p>
-                                <hr style={{width: '50%'}}/>
-                                <p style={{textAlign: 'center'}}>Founder&nbsp;CEO</p>
-                                <Box style={{textAlign: 'center'}}>
-                                    <a href= "https://www.instagram.com/nathen_pruitt/">
-                                        <InstagramIcon style={{color: '#c13584'}}/>
-                                    </a>
+                        <Grid container item x1={12} lg={12} sm={12} md={12} xs={12} style={{ justifyContent: 'center' }}>
+                            <Grid container item xl={3} lg={3} sm={6} md={6} xs={12} style={{ padding: '10px 10px' }}>
+                                <Box>
+                                    <img src={nathen_Pruitt} className="img-fitness"></img>
+                                    <p style={{ textAlign: 'center', fontWeight: '700', fontSize: '1.5rem' }}>Nathen Pruitt</p>
+                                    <hr className='w-50' />
+                                    <p style={{ textAlign: 'center' }}>Founder&nbsp;CEO</p>
+                                    <Box style={{ textAlign: 'center' }}>
+                                        <a href="https://www.instagram.com/nathen_pruitt/">
+                                            <InstagramIcon style={{ color: '#c13584' }} />
+                                        </a>
+                                    </Box>
+                                </Box>
+                            </Grid>
+                            <Grid container item xl={3} lg={3} sm={6} md={6} xs={12} style={{ padding: '10px 10px' }}>
+                                <Box>
+                                    <img src={joe_Shepard} className="img-fitness"></img>
+                                    <p style={{ textAlign: 'center', fontWeight: '700', fontSize: '1.5rem' }}>Joe Shepard</p>
+                                    <hr className='w-50' />
+                                    <p style={{ textAlign: 'center' }}>Co-Founder,&nbsp;CTO</p>
+                                    {/* <Box style={{ textAlign: 'center' }}>
+                                        <a href="https://www.instagram.com/nathen_pruitt/">
+                                            <InstagramIcon style={{ color: '#c13584' }} />
+                                        </a>
+                                    </Box> */}
+                                </Box>
+                            </Grid>
+                        </Grid>
+                        {/* TEAM PARTNERS 1~4*/}
+                        <Grid container item x1={12} lg={12} sm={12} md={12} xs={12} style={{ justifyContent: 'center' }}>
+                            <Grid container item xl={3} lg={3} sm={6} md={6} xs={12} style={{ padding: '10px 10px' }}>
+                                <Box>
+                                    <img src={oleksandr_Holovchenko} className="img-fitness"></img>
+                                    <p style={{ textAlign: 'center', fontWeight: '700', fontSize: '1.5rem' }}>Oleksandr Holovchenko</p>
+                                    <hr className='w-50' />
+                                    <p style={{ textAlign: 'center' }}>Blockchain Developer and Crypto Advisor</p>
+                                    {/* <Box style={{ textAlign: 'center' }}>
+                                        <a href="https://www.instagram.com/nathen_pruitt/">
+                                            <InstagramIcon style={{ color: '#c13584' }} />
+                                        </a>
+                                    </Box> */}
+                                </Box>
+                            </Grid>
+                            <Grid container item xl={3} lg={3} sm={6} md={6} xs={12} style={{ padding: '10px 10px' }}>
+                                <Box>
+                                    <img src={nikita_Semenov} className="img-fitness"></img>
+                                    <p style={{ textAlign: 'center', fontWeight: '700', fontSize: '1.5rem' }}>Nikita Semenov</p>
+                                    <hr className='w-50' />
+                                    <p style={{ textAlign: 'center' }}>Web, Unity and Blockchain Developer</p>
+                                    {/* <Box style={{ textAlign: 'center' }}>
+                                        <a href="https://www.instagram.com/nathen_pruitt/">
+                                            <InstagramIcon style={{ color: '#c13584' }} />
+                                        </a>
+                                    </Box> */}
+                                </Box>
+                            </Grid>
+                            <Grid container item xl={3} lg={3} sm={6} md={6} xs={12} style={{ padding: '10px 10px' }}>
+                                <Box>
+                                    <img src={zian_Kang} className="img-fitness"></img>
+                                    <p style={{ textAlign: 'center', fontWeight: '700', fontSize: '1.5rem' }}>Zian Kang</p>
+                                    <hr className='w-50' />
+                                    <p style={{ textAlign: 'center' }}>Business Developer Advisor</p>
+                                    <Box style={{ textAlign: 'center' }}>
+                                        <a href="https://www.linkedin.com/in/zian-kang/">
+                                            <LinkedInIcon style={{ color: 'black' }} />
+                                        </a>
+                                    </Box>
+                                </Box>
+                            </Grid>
+                            <Grid container item xl={3} lg={3} sm={6} md={6} xs={12} style={{ padding: '10px 10px' }}>
+                                <Box>
+                                    <img src={jadon_Mullen} className="img-fitness"></img>
+                                    <p style={{ textAlign: 'center', fontWeight: '700', fontSize: '1.5rem' }}>Jadon Mullen</p>
+                                    <hr className='w-50' />
+                                    <p style={{ textAlign: 'center' }}>Financial Advisor</p>
+                                    <Box style={{ textAlign: 'center' }}>
+                                        <a href="https://www.linkedin.com/#">
+                                            <LinkedInIcon style={{ color: 'black' }} />
+                                        </a>
+                                    </Box>
+                                </Box>
+                            </Grid>
+                        </Grid>
+
+                        {/* TEAM PARTNERS 5~8*/}
+                        <Grid container item x1={12} lg={12} sm={12} md={12} xs={12} style={{ justifyContent: 'center' }}>
+                            <Grid container item xl={3} lg={3} sm={6} md={6} xs={12} style={{ padding: '10px 10px' }}>
+                                <Box>
+                                    <img src={sophia_Oconnell} className="img-fitness"></img>
+                                    <p style={{ textAlign: 'center', fontWeight: '700', fontSize: '1.5rem' }}>Sophia Oconnell</p>
+                                    <hr className='w-50' />
+                                    <p style={{ textAlign: 'center' }}>HR Manager and Communication</p>
+                                    <Box style={{ textAlign: 'center' }}>
+                                        <a href="https://www.facebook.com/profile.php?id=100076878830350">
+                                            <FacebookIcon style={{ color: 'black' }} />
+                                        </a>
+                                        <a href="https://www.instagram.com/sophia_oconnell/">
+                                            <InstagramIcon style={{ color: '#c13584' }} />
+                                        </a>
+
+                                    </Box>
+                                </Box>
+                            </Grid>
+                            <Grid container item xl={3} lg={3} sm={6} md={6} xs={12} style={{ padding: '10px 10px' }}>
+                                <Box>
+                                    <img src={nathifa_Yakubu} className="img-fitness"></img>
+                                    <p style={{ textAlign: 'center', fontWeight: '700', fontSize: '1.5rem' }}>Nathifa Yakubu</p>
+                                    <hr className='w-50' />
+                                    <p style={{ textAlign: 'center' }}>Head of Marketing</p>
+                                    <Box style={{ textAlign: 'center' }}>
+                                        <a href="https://www.facebook.com/#">
+                                            <FacebookIcon style={{ color: 'black' }} />
+                                        </a>
+                                    </Box>
+                                </Box>
+                            </Grid>
+                            <Grid container item xl={3} lg={3} sm={6} md={6} xs={12} style={{ padding: '10px 10px' }}>
+                                <Box>
+                                    <img src={alfred_Kadyn} className="img-fitness"></img>
+                                    <p style={{ textAlign: 'center', fontWeight: '700', fontSize: '1.5rem' }}>Alfred Kadyn</p>
+                                    <hr className='w-50' />
+                                    <p style={{ textAlign: 'center' }}>Social Media Manager</p>
+                                    <Box style={{ textAlign: 'center' }}>
+                                        <a href="https://www.instagram.com/alfred.kadyn/">
+                                            <InstagramIcon style={{ color: '#c13584' }} />
+                                        </a>
+                                    </Box>
+                                </Box>
+                            </Grid>
+                            <Grid container item xl={3} lg={3} sm={6} md={6} xs={12} style={{ padding: '10px 10px' }}>
+                                <Box>
+                                    <img src={yu_Wang} className="img-fitness"></img>
+                                    <p style={{ textAlign: 'center', fontWeight: '700', fontSize: '1.5rem' }}>Yu Wang</p>
+                                    <hr className='w-50' />
+                                    <p style={{ textAlign: 'center' }}>Graphist</p>
+                                    <Box style={{ textAlign: 'center' }}>
+                                        <a href="https://www.instagram.com/yuwang.graphist/">
+                                            <InstagramIcon style={{ color: '#c13584' }} />
+                                        </a>
+                                    </Box>
                                 </Box>
                             </Grid>
                         </Grid>
@@ -284,7 +426,13 @@ function switchTabPalel_2(index, children) {
         case 0:
             return (
                 <Box sx={{ p: 3 }}>
-                    <Typography style={{ color: 'white', textAlign: 'left' }}>{children}</Typography>
+                    <Grid container>
+                        <Grid item md={3} xs={3} lg={3} xl={3}>
+                            <Box>
+                                <img src={logoGif} className='img-fitness'/>
+                            </Box>
+                        </Grid>
+                    </Grid>
                 </Box>
             );
         case 1:
@@ -406,48 +554,50 @@ const SecondPart = () => {
 
     return (
         <Grid container item xs={12} md={12} >
-            <Grid item xs={6} md={12} className='m-blur-part' style={{ height: '70%', marginTop: '15px' }}>
-                <Box sx={{ width: '100%' }}>
-                    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                        <Tabs value={firstValue} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab label={<span className={firstValue === 0 ? classes.activeTab : classes.customStyleOnTab}>About Us</span>} {...a11yProps(0)} />
-                            <Tab label={<span className={firstValue === 1 ? classes.activeTab : classes.customStyleOnTab}>News</span>} {...a11yProps(1)} />
-                            <Tab label={<span className={firstValue === 2 ? classes.activeTab : classes.customStyleOnTab}>Roadmap</span>} {...a11yProps(2)} />
-                            <Tab label={<span className={firstValue === 3 ? classes.activeTab : classes.customStyleOnTab}>NFT</span>} {...a11yProps(3)} />
-                            <Tab label={<span className={firstValue === 4 ? classes.activeTab : classes.customStyleOnTab}>Distribution</span>} {...a11yProps(4)} />
-                            <Tab label={<span className={firstValue === 5 ? classes.activeTab : classes.customStyleOnTab}>Pre-sale</span>} {...a11yProps(5)} />
-                            <Tab label={<span className={firstValue === 6 ? classes.activeTab : classes.customStyleOnTab}>Our Partners</span>} {...a11yProps(6)} />
-                            <Tab label={<span className={firstValue === 7 ? classes.activeTab : classes.customStyleOnTab}>Our Team</span>} {...a11yProps(7)} />
-                        </Tabs>
+            <Grid item xs={12} md={12} className='m-blur-part' style={{ height: '70%', marginTop: '15px' }} >
+                <Box style={{ width: '100%', height: '100%' }}>
+                    <Box >
+                        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                            <Tabs value={firstValue} onChange={handleChange} aria-label="basic tabs example">
+                                <Tab label={<span className={firstValue === 0 ? classes.activeTab : classes.customStyleOnTab}>About Us</span>} {...a11yProps(0)} />
+                                <Tab label={<span className={firstValue === 1 ? classes.activeTab : classes.customStyleOnTab}>News</span>} {...a11yProps(1)} />
+                                <Tab label={<span className={firstValue === 2 ? classes.activeTab : classes.customStyleOnTab}>Roadmap</span>} {...a11yProps(2)} />
+                                <Tab label={<span className={firstValue === 3 ? classes.activeTab : classes.customStyleOnTab}>NFT</span>} {...a11yProps(3)} />
+                                <Tab label={<span className={firstValue === 4 ? classes.activeTab : classes.customStyleOnTab}>Distribution</span>} {...a11yProps(4)} />
+                                <Tab label={<span className={firstValue === 5 ? classes.activeTab : classes.customStyleOnTab}>Pre-sale</span>} {...a11yProps(5)} />
+                                <Tab label={<span className={firstValue === 6 ? classes.activeTab : classes.customStyleOnTab}>Our Partners</span>} {...a11yProps(6)} />
+                                <Tab label={<span className={firstValue === 7 ? classes.activeTab : classes.customStyleOnTab}>Our Team</span>} {...a11yProps(7)} />
+                            </Tabs>
+                        </Box>
+                        <TabPanel_1 value={firstValue} index={0}>
+                            The first metaverse marketplace blockchain-based for CSGO equipment Our goal is to develop a next-generation platform for video game players that allows them to purchase and trade gaming equipment in metaverse world, as well as invest in the cryptocurrency world. We increase the transparency of transactions with the help of blockchain technology
+                        </TabPanel_1>
+                        <TabPanel_1 value={firstValue} index={1}>
+                            no post yet!
+                        </TabPanel_1>
+                        <TabPanel_1 value={firstValue} index={2}>
+                            RoadMap
+                        </TabPanel_1>
+                        <TabPanel_1 value={firstValue} index={3}>
+                            Our team intends to enable users to design their own items such as Skins, Gloves, Agents, ... and sell them as a non-fungible token.
+                        </TabPanel_1>
+                        <TabPanel_1 value={firstValue} index={4}>
+                            Distribution
+                        </TabPanel_1>
+                        <TabPanel_1 value={firstValue} index={5}>
+                            Pre-sale
+                        </TabPanel_1>
+                        <TabPanel_1 value={firstValue} index={6}>
+                            Our Partners
+                        </TabPanel_1>
+                        <TabPanel_1 value={firstValue} index={7} className="customize_scrollbar" style={{ height: '90%', position: 'fixed', overflowX: 'hidden', overflowY: 'scroll' }}>
+                            Our Team
+                        </TabPanel_1>
                     </Box>
-                    <TabPanel_1 value={firstValue} index={0}>
-                        The first metaverse marketplace blockchain-based for CSGO equipment Our goal is to develop a next-generation platform for video game players that allows them to purchase and trade gaming equipment in metaverse world, as well as invest in the cryptocurrency world. We increase the transparency of transactions with the help of blockchain technology
-                    </TabPanel_1>
-                    <TabPanel_1 value={firstValue} index={1}>
-                        no post yet!
-                    </TabPanel_1>
-                    <TabPanel_1 value={firstValue} index={2}>
-                        RoadMap
-                    </TabPanel_1>
-                    <TabPanel_1 value={firstValue} index={3}>
-                        Our team intends to enable users to design their own items such as Skins, Gloves, Agents, ... and sell them as a non-fungible token.
-                    </TabPanel_1>
-                    <TabPanel_1 value={firstValue} index={4}>
-                        Distribution
-                    </TabPanel_1>
-                    <TabPanel_1 value={firstValue} index={5}>
-                        Pre-sale
-                    </TabPanel_1>
-                    <TabPanel_1 value={firstValue} index={6}>
-                        Our Partners
-                    </TabPanel_1>
-                    <TabPanel_1 value={firstValue} index={7}>
-                        Our Team
-                    </TabPanel_1>
                 </Box>
             </Grid>
             {/* Second Part Grid */}
-            <Grid item xs={6} md={12} className='m-blur-part' style={{ height: '24%' }}>
+            <Grid item xs={12} md={12} className='m-blur-part' style={{ height: '24%' }}>
                 <Box sx={{ width: '100%' }}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                         <Tabs value={SecondValue} onChange={handleSecondGridChange} aria-label="basic tabs example">
