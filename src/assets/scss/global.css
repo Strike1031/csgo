@@ -5,10 +5,16 @@
     font-weight: bold;
 }
 
+
 .href-image:hover {
     color: white
 }
 /* This is for main part */
+.img-fitness {
+    max-width: 100%;
+    max-height: auto;
+}
+
 .m-blur {
     background-color: rgba(0,0,0,0.2);
     backdrop-filter: blur(50px);

@@ -12,20 +12,45 @@ import { fontWeight } from '@mui/system';
 // import { Chart } from 'react-chartjs-2';
 import { Doughnut } from 'react-chartjs-2';
 
-import { Chart, ArcElement } from 'chart.js'
+// import { Chart, ArcElement } from 'chart.js'
 import 'chart.js/auto';
 
 import '../../assets/scss/index_SecondPart.css'
 
+//Material Images
 import nftImage_1 from '../../assets/images/nft/1.png';
 import nftImage_2 from '../../assets/images/nft/2.png';
 import nftImage_3 from '../../assets/images/nft/3.png';
 import nftImage_4 from '../../assets/images/nft/4.png';
 import bscscanLogoSvg from '../../assets/images/logo-bscscan.svg';
-import { yellow } from '@mui/material/colors';
 
+//    Material Iconts/
+import CheckIcon from '@mui/icons-material/Check';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import { NoBackpackSharp } from '@mui/icons-material';
+
+//     Import icon like linkedin, facebook, instagram
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import FacebookIcon from '@mui/icons-material/Facebook';
+
+//     Import Team images
+import nathen_Pruitt from '../../assets/images/team/nathen-Pruitt.jpg';
+import joe_Shepard from '../../assets/images/team/joe-Shepard.jpg';
+import oleksandr_Holovchenko from '../../assets/images/team/oleksandr-Holovchenko.jpg';
+import nikita_Semenov from '../../assets/images/team/nikita-Semenov.jpg';
+import zian_Kang from '../../assets/images/team/zian-Kang.jpg';
+import jadon_Mullen from '../../assets/images/team/jadon-Mullen.jpg';
+import sophia_Oconnell from '../../assets/images/team/sophia-Oconnell.jpg';
+import nathifa_Yakubu from '../../assets/images/team/nathifa-Yakubu.jpg';
+import alfred_Kadyn from '../../assets/images/team/alfred-Kadyn.jpg';
+import yu_Wang from '../../assets/images/team/yu-Wang.jpg';
+
+
+
+
+// Variables and functions
 const my_nftImages = [nftImage_1, nftImage_2, nftImage_3, nftImage_4];
-
 
 const my_chart_options = {
     responsive: true,
@@ -41,36 +66,72 @@ const my_chart_options = {
             display: false,
         },
     }
-    // options: {
-    //     plugins: {
-    //         tooltip: {
-    //             // callbacks: {
-    //             //     label: function (tooltipItem, data) {
-
-    //             //         let label =
-    //             //             (data.datasets[tooltipItem.datasetIndex].labels &&
-    //             //                 data.datasets[tooltipItem.datasetIndex].labels[
-    //             //                 tooltipItem.index
-    //             //                 ]) ||
-    //             //             data.labels[tooltipItem.index] ||
-    //             //             "";
-    //             //         if (label) {
-    //             //             label += ": ";
-    //             //         }
-
-    //             //         // Apply the value and suffix
-    //             //         label +=
-    //             //             data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] +
-    //             //             (data.datasets[tooltipItem.datasetIndex].labelSuffix || "");
-
-    //             //         label = "as";
-    //             //         return label;
-    //             //     },
-    //             // }
-    //         }
-    //     }
-    // }
 };
+const my_presale_plan_data = [
+    {
+        title: 'Phase 1:',
+        content: '500/000/000 Tokens ',
+        price: '0.0005 BUSD',
+    },
+    {
+        title: 'Phase 2:',
+        content: '1/000/000/000 Tokens ',
+        price: '0.00075 BUSD',
+    },
+    {
+        title: 'Phase 3:',
+        content: '8/500/000/000 Tokens  ',
+        price: '0.001 BUSD',
+    },
+    {
+        title: 'Phase 4:',
+        content: '15/000/000/000 Tokens  ',
+        price: ' 0.002 BUSD',
+    },
+    {
+        title: 'Phase 5:',
+        content: '15/000/000/000 Tokens ',
+        price: '0.003 BUSD',
+    },
+    {
+        title: 'Phase 6:',
+        content: 'Listing in exchanges  ',
+        price: '0.005 BUSD',
+    }
+
+];
+
+function My_presale_plan(props) {
+    const plan_datas = props.mydata;
+    const Display_data = plan_datas.map((mydata, index) => {
+        return (
+            <Box key={index} marginBottom={'5px'}>
+                <p style={{ alignItems: 'center', display: 'flex' }}>
+                    <span style={{ alignItems: 'center', display: 'flex' }}>
+                        <CheckIcon style={{ color: 'white', opacity: '50%' }} />
+                    </span>
+                    <span>&nbsp;&nbsp;</span>
+                    <span style={{ color: 'white' }}>{mydata.title}</span>
+                    <span>&nbsp;&nbsp;</span>
+                    <span>{mydata.content}</span>
+                    <span>&nbsp;&nbsp;</span>
+                    <span style={{ alignItems: 'center', display: 'flex' }}>
+                        <ArrowRightAltIcon style={{ color: '#ff9f08' }} />
+                        <span>&nbsp;&nbsp;</span>
+                        <span>{mydata.price}</span>
+                    </span>
+                </p>
+            </Box>
+        )
+    });
+
+    return (
+        <Box sx={{ p: 3 }} style={{ textAlign: 'left' }}>
+            <Typography style={{ color: '#ff9f08', fontWeight: 'bold', fontSize: '18px' }}>Private Sale and Public Sale :</Typography>
+            {Display_data}
+        </Box>
+    );
+}
 
 const my_chart_data = {
     datasets: [{
@@ -157,15 +218,15 @@ function switchTabPalel_1(index, children) {
                     </Grid>
                     <Grid container>
                         <Grid item md={6} lg={6} xs={6}>
-                            <Box style={{display: 'flex', justifyContent: 'center'}}>
-                                <Typography style={{color: '#ff9f08'}}>Total supply : {"   "}</Typography>
-                                <Typography style={{color: 'white'}}>100/000/000/000</Typography>
+                            <Box style={{ display: 'flex', justifyContent: 'center' }}>
+                                <Typography style={{ color: '#ff9f08' }}>Total supply : {"   "}</Typography>
+                                <Typography style={{ color: 'white' }}>100/000/000/000</Typography>
                             </Box>
                         </Grid>
                         <Grid item md={6} lg={6} xs={6}>
-                            <Box style={{display: 'flex', justifyContent: 'center'}}>
-                                <Typography style={{color: '#ff9f08'}}>Max supply :{"   "}</Typography>
-                                <Typography style={{color: 'white'}}>100/000/000/000</Typography>
+                            <Box style={{ display: 'flex', justifyContent: 'center' }}>
+                                <Typography style={{ color: '#ff9f08' }}>Max supply :{"   "}</Typography>
+                                <Typography style={{ color: 'white' }}>100/000/000/000</Typography>
                             </Box>
                         </Grid>
                     </Grid>
@@ -175,17 +236,13 @@ function switchTabPalel_1(index, children) {
             );
         case 5:
             return (
-                <Box sx={{ p: 3 }} style={{textAlign: 'left'}}>
-                    <Typography style={{color: '#ff9f08', fontWeight: 'bold', fontSize: '18px'}}>Private Sale and Public Sale :</Typography>
-                    
-                </Box>
-
+                <My_presale_plan mydata={my_presale_plan_data} />
             );
         case 6:
             return (
                 <Box sx={{ p: 3 }}>
                     <Grid container xs={12} md={12}>
-                        <Grid item xs={3} md={3}>
+                        <Grid item xs={3} md={3} sm={3}>
                             <a href='https://bscscan.com/'>
                                 <img src={bscscanLogoSvg} style={{ maxWidth: '100%', maxHeight: '100%' }} />
                             </a>
@@ -195,9 +252,25 @@ function switchTabPalel_1(index, children) {
                 </Box>
             );
         case 7:
+            {/* It is unnecessary to use  <map> function---because ..*/}
             return (
                 <Box sx={{ p: 3 }}>
-                    <Typography style={{ color: 'white', textAlign: 'left' }}>{children}</Typography>
+                    <Grid container>
+                        {/* CEO and CTO */}
+                        <Grid container item x1={12} lg={12} sm={12} md={12} xs={12}>
+                            <Grid container item xl={3} lg={3} sm={6} md={6} xs={12}>
+                                <img src={nathen_Pruitt} class = "img-fitness"></img>
+                                <p style={{textAlign: 'center', fontWeight: '700', fontSize: '1.5rem'}}>Nathen Pruitt</p>
+                                <hr style={{width: '50%'}}/>
+                                <p style={{textAlign: 'center'}}>Founder&nbsp;CEO</p>
+                                <Box style={{textAlign: 'center'}}>
+                                    <a href= "https://www.instagram.com/nathen_pruitt/">
+                                        <InstagramIcon style={{color: '#c13584'}}/>
+                                    </a>
+                                </Box>
+                            </Grid>
+                        </Grid>
+                    </Grid>
                 </Box>
 
             );

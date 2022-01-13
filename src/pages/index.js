@@ -10,7 +10,7 @@ import { Grid } from "@mui/material";
 import SecondPart from '../components/Index/SecondPart'
 import ThirdPart from '../components/Index/ThirdPart'
 
-
+//This is the first page ==containers sidebar and two blocks--rightside and beyond
 function Index() {
   return (
     <div className="main-body">
