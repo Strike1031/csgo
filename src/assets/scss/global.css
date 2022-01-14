@@ -1,4 +1,28 @@
+/*   Tabs*/
+
+@media only screen and (max-width: 1650px){
+    div.css-heg063-MuiTabs-flexContainer {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    button.css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+        width:30%
+    }
+}
+
+@media only screen and (max-width: 800px){
+    div.css-heg063-MuiTabs-flexContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 /* This is for second part */
+.main-color {
+    color:#ff9f08;
+}
+
 .href-image {
     color: #ff9f08;
     text-decoration: none;
@@ -9,10 +33,20 @@
 .href-image:hover {
     color: white
 }
+
+.href-blue {
+    color: #ff9f08;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.href-blue:hover {
+    color: #007bff;
+}
 /* This is for main part */
 .img-fitness {
     max-width: 100%;
-    max-height: auto;
+    max-height: 100%;
 }
 
 .m-blur {
@@ -59,3 +93,5 @@ img.listitem_logoimg {
     padding-left: 0px;
     padding-right: 0px;
 }
+
+

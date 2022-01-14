@@ -7,106 +7,93 @@ import StepContent from '@mui/material/StepContent';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
+import CheckIcon from '@mui/icons-material/Check';
+import Check from '@mui/icons-material/Check';
+import { fontSize } from '@mui/system';
 
 const steps = [
     {
         label: 'Q4',
-        description: `Building project team
-                        Project development and market research
-   
-                        Smart contract creation on Binance Smart Chain
-   
-                        Website launching`,
+        description: [
+            "Building project team",
+            "Project development and market research",
+            "Smart contract creation on Binance Smart Chain",
+            "Website launching",
+            "Presence on social media",
+        ]
     },
     {
         label: 'Q1',
-        description:
-            'An ad group contains one or more ads which target a shared set of keywords.',
+        description: [
+            "Powerful marketing with a professional team",
+            "Launching our NFT collection on opensea.io",
+            "Coinmarketcap listing",
+            "Coingecko listing",
+            "Private sales for investing companies",
+            "Pre-sale 40% of total supply in 4 steps for community",
+        ]
     },
     {
         label: 'Q2',
-        description: `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`,
+        description: [
+            "Business development",
+            "Giving rewards to pre-sale participants such as : NFT items, Membership card,…",
+            "Hiring more experts for required positions",
+            "Listing on major exchanges",
+        ]
     },
     {
         label: 'Q3',
-        description: `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`,
+        description: [
+            "Creation CSGO blockchain",
+            "Launching the first metaverse CSGO market that items trade only with cryptocurrencies",
+        ]
     },
     {
         label: 'Q4',
-        description: `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`,
+        description: [
+            "Creating an NFT platform for selling items created by users",
+            "Launching Mobile Applications for all devices",
+            "Sponsoring global competitions and gatherings for the CSGO community",
+        ]
     },
 ];
 
 export default function Roadmap() {
     const [activeStep, setActiveStep] = React.useState(0);
 
-    const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    };
-
-    const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    };
-
-    const handleReset = () => {
-        setActiveStep(0);
+    const handleButton = (mydata) => {
+        setActiveStep(mydata);
     };
 
     return (
-        <Box sx={{ maxWidth: 400 }}>
-            <Stepper activeStep={activeStep} orientation="vertical">
+        <Box sx={{ maxWidth: 800 }}>
+            <Stepper activeStep={activeStep} orientation="vertical" style={{ padding: '50px 0 0 50px' }}>
                 {steps.map((step, index) => (
-                    <Step key={step}>
-                        <StepLabel
-                            optional={
-                                index === 2 ? (
-                                    <Typography variant="caption">Last step</Typography>
-                                ) : null
-                            }
-                        >
-                            {step.label}
-                        </StepLabel>
-                        <StepContent>
-                            <Typography>{step.description}</Typography>
-                            <Box sx={{ mb: 2 }}>
-                                <div>
-                                    <Button
-                                        variant="contained"
-                                        onClick={handleNext}
-                                        sx={{ mt: 1, mr: 1 }}
-                                    >
-                                        {index === steps.length - 1 ? 'Finish' : 'Continue'}
-                                    </Button>
-                                    <Button
-                                        disabled={index === 0}
-                                        onClick={handleBack}
-                                        sx={{ mt: 1, mr: 1 }}
-                                    >
-                                        Back
-                                    </Button>
-                                </div>
-                            </Box>
-                        </StepContent>
+                    <Step key={step + index}>
+                        <div onClick={() => handleButton(index)}>
+                            <StepLabel className='roadmap-step'>
+                                {step.label}
+                            </StepLabel>
+                            <StepContent>
+                                {
+                                    step.description.map((item, index2) => (
+                                        <div key={item + index2} style={{ textAlign: 'left', display: 'flex' }}>
+                                            <span>
+                                                <CheckIcon style={{stroke: '#ff9f08', strokeWidth: '2px'}}/>
+                                            </span>
+
+                                            <span>&nbsp;&nbsp;{item}</span>
+                                        </div>
+
+                                    ))
+                                }
+                            </StepContent>
+                        </div>
+
                     </Step>
                 ))}
             </Stepper>
-            {activeStep === steps.length && (
-                <Paper square elevation={0} sx={{ p: 3 }}>
-                    <Typography>All steps completed - you&apos;re finished</Typography>
-                    <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
-                        Reset
-                    </Button>
-                </Paper>
-            )}
         </Box>
     );
 }

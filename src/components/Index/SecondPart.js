@@ -8,7 +8,7 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import { makeStyles } from '@mui/styles';
 import Roadmap from '../SecondPart/Roadmap/index'
-import { fontWeight } from '@mui/system';
+import { fontWeight, margin } from '@mui/system';
 // import { Chart } from 'react-chartjs-2';
 import { Doughnut } from 'react-chartjs-2';
 
@@ -24,17 +24,22 @@ import nftImage_3 from '../../assets/images/nft/3.png';
 import nftImage_4 from '../../assets/images/nft/4.png';
 import bscscanLogoSvg from '../../assets/images/logo-bscscan.svg';
 import logoGif from '../../assets/images/logo.gif';
-
+import copySvg from '../../assets/images/copy.svg';
 
 //    Material Iconts/
 import CheckIcon from '@mui/icons-material/Check';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import { NoBackpackSharp } from '@mui/icons-material';
+import { Facebook, NoBackpackSharp } from '@mui/icons-material';
 
 //     Import icon like linkedin, facebook, instagram
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import RedditIcon from '@mui/icons-material/Reddit';
+import { Telegram } from '@mui/icons-material';
+import { Twitter } from '@mui/icons-material';
+import { YouTube } from '@mui/icons-material';
+import mediumIcon from '../../assets/images/medium.png';
 
 //     Import Team images
 import nathen_Pruitt from '../../assets/images/team/nathen-Pruitt.jpg';
@@ -167,7 +172,7 @@ function NftImageList(props) {
 
 function switchTabPalel_1(index, children) {
     switch (index) {
-        // About Us
+        // TopTab: About Us
         case 0:
             return (
                 <Box sx={{ p: 3 }}>
@@ -177,20 +182,13 @@ function switchTabPalel_1(index, children) {
                     <Typography style={{ color: 'white', textAlign: 'left' }}>{children}</Typography>
                 </Box>
             );
-        // News    
+        // TopTab: Roadmap    
         case 1:
-            return (
-                <Box sx={{ p: 3 }}>
-                    <Typography style={{ color: 'black', textAlign: 'center' }}>{children}</Typography>
-                </Box>
-            );
-        // Roadmap    
-        case 2:
             return (
                 <Roadmap />
             );
-        // NFT    
-        case 3:
+        // TopTab: NFT    
+        case 2:
             return (
                 <Box sx={{ p: 3 }}>
                     <Typography style={{ color: 'white', textAlign: 'left' }}>Our team intends to enable users to design their own items such as Skins, Gloves, Agents, ... and sell them as a non-fungible token.</Typography>
@@ -216,11 +214,11 @@ function switchTabPalel_1(index, children) {
                     </Grid> */}
                 </Box>
             );
-        //Distribution    
-        case 4:
+        //TopTab: Distribution    
+        case 3:
             return (
                 <Box>
-                    <Grid container style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Grid container style={{ display: 'flex', justifyContent: 'center', padding: '20px 0' }}>
                         <Box style={{ width: '50%' }} id="chartJSContainer">
                             <Doughnut data={my_chart_data} options={my_chart_options} />
                         </Box>
@@ -243,13 +241,13 @@ function switchTabPalel_1(index, children) {
 
 
             );
-        //Pre-sale
-        case 5:
+        //TopTab: Pre-sale
+        case 4:
             return (
                 <My_presale_plan mydata={my_presale_plan_data} />
             );
-        //Our Partners    
-        case 6:
+        //TopTab: Our Partners    
+        case 5:
             return (
                 <Box sx={{ p: 3 }}>
                     <Grid container>
@@ -262,8 +260,8 @@ function switchTabPalel_1(index, children) {
 
                 </Box>
             );
-        case 7:
-            // Our Team
+        case 6:
+            // TopTab: Our Team
             {/* It is unnecessary to use  <map> function---because ..*/ }
             return (
                 <Box sx={{ p: 3 }}>
@@ -423,40 +421,130 @@ function switchTabPalel_1(index, children) {
 
 function switchTabPalel_2(index, children) {
     switch (index) {
+        //BelowTab: CSGO token Details
         case 0:
             return (
-                <Box sx={{ p: 3 }}>
-                    <Grid container>
-                        <Grid item md={3} xs={3} lg={3} xl={3}>
-                            <Box>
-                                <img src={logoGif} className='img-fitness'/>
-                            </Box>
-                        </Grid>
+                <Grid container >
+                    <Grid item md={3} xs={3} lg={3} xl={3} sm={3} style={{ paddingTop: '10px' }}>
+                        <img src={logoGif} style={{ width: '60%' }} />
+
                     </Grid>
-                </Box>
+                    <Grid item md={9} xs={9} lg={9} sm={9} xl={9} style={{ textAlign: 'left' }}>
+                        <Box>
+                            <div style={{ margin: '10px 0px' }}>
+                                <span style={{ color: '#9e9e9e' }}>Name and Symbol :  </span>
+                                <span style={{ fontWeight: 'bold', color: 'white' }}>CSGO</span>
+                            </div>
+                            <div style={{ margin: '10px 0px' }}>
+                                <span style={{ color: '#9e9e9e' }}>Decimals :   </span>
+                                <span style={{ fontWeight: 'bold', color: 'white' }}>18</span>
+                            </div>
+                            <div style={{ margin: '10px 0px' }}>
+                                <span style={{ color: '#9e9e9e' }}>Contract Address :   </span>
+                                <span style={{ fontWeight: 'bold', color: 'white', fontSize: '18px' }}>0x0651Fa67041E9C14C0154EFb4421873E55B799Fd</span>
+                                <span>
+                                    <button className="copy-btn" onClick={() => { navigator.clipboard.writeText("0x0651Fa67041E9C14C0154EFb4421873E55B799Fd") }}>
+                                        <img src={copySvg} width={20}  />
+                                    </button>
+                                </span>
+                            </div>
+                            <div style={{ margin: '10px 0px' }}>
+                                <a href='https://bscscan.com/token/0x0651Fa67041E9C14C0154EFb4421873E55B799Fd' className='href-image'>View on BscScan</a>
+                            </div>
+                        </Box>
+                    </Grid>
+                </Grid>
+
             );
+        // BelowTab:Community
         case 1:
             return (
-                <Box sx={{ p: 3 }}>
-                    <Typography style={{ color: 'white', textAlign: 'left' }}>{children}</Typography>
+                <Box sx={{ p: 3 }} className='belowTab-community-flexwrap-Parent'>
+                    <div className='belowTab-community-flexwrap-Child'>
+                        <a className='href-svgIcon' href="https://instagram.com/csgotoken">
+                            <InstagramIcon style={{ color: '#c13584', fontSize: '50px' }} />
+                            <span>&nbsp; Instagram</span>
+                        </a>
+                    </div>
+                    <div className='belowTab-community-flexwrap-Child'>
+                        <a className='href-svgIcon' href="https://www.reddit.com/r/csgotoken/">
+                            <RedditIcon style={{ color: 'rgb(97,94,82)', fontSize: '50px', backgroundColor: '#FF4301', borderRadius: '10%' }} />
+                            <span>&nbsp; Reddit</span>
+                        </a>
+                    </div>
+                    <div className='belowTab-community-flexwrap-Child'>
+                        <a className='href-svgIcon' href="https://t.me/csgotoken_channel">
+                            <Telegram style={{ color: 'rgb(97,94,82)', fontSize: '50px', backgroundColor: '#0088cc', borderRadius: '50%', objectFit: 'cover' }} />
+                            <span> &nbsp;Telegram (Channel)</span>
+                        </a>
+                    </div>
+                    <div className='belowTab-community-flexwrap-Child'>
+                        <a className='href-svgIcon' href="https://twitter.com/csgotoken">
+                            <Twitter style={{ color: 'rgb(97,94,82)', fontSize: '50px', backgroundColor: '#0088cc', borderRadius: '10%' }} />
+                            <span> &nbsp;Twitter</span>
+                        </a>
+                    </div>
+                    <div className='belowTab-community-flexwrap-Child'>
+                        <a className='href-svgIcon' href="https://www.facebook.com/csgotoken.org/">
+                            <Facebook style={{ color: 'rgb(97,94,82)', fontSize: '50px', backgroundColor: '#3b5998', borderRadius: '10%' }} />
+                            <span>&nbsp; Facebook</span>
+                        </a>
+                    </div>
+                    <div className='belowTab-community-flexwrap-Child'>
+                        <a className='href-svgIcon' href="https://t.me/csgotoken_group">
+                            <Telegram style={{ color: 'rgb(97,94,82)', fontSize: '50px', backgroundColor: '#0088cc', borderRadius: '50%' }} />
+                            <span>&nbsp; Telegram (group)</span>
+                        </a>
+                    </div>
+                    <div className='belowTab-community-flexwrap-Child'>
+                        <a className='href-svgIcon' href="http://csgotoken.medium.com/">
+                            {/* <MediumIcon style={{ color: '#c13584', fontSize: '50px' }} /> */}
+                            <img src={mediumIcon}/>
+                            <span>&nbsp; Medium</span>
+                        </a>
+                    </div>
+                    <div className='belowTab-community-flexwrap-Child'>
+                        <a className='href-svgIcon' href="https://www.youtube.com/channel/UCay3_p7SJQbSjCY9K4imf9g">
+                            <YouTube style={{ color: 'rgb(97,94,82)', fontSize: '50px', backgroundColor: '#FF0000', borderRadius: '10%' }} />
+                            <span>&nbsp; Youtube </span>
+                        </a>
+                    </div>
+                    <div className='belowTab-community-flexwrap-Child'>
+                        <a className='href-svgIcon' href="https://www.linkedin.com/company/csgo-token">
+                            <LinkedInIcon style={{ fontSize: '50px', backgroundColor: 'black', borderRadius: '10%' }} />
+                            <span>&nbsp; Linkedin</span>
+                        </a>
+                    </div>
                 </Box>
             );
+        // BelowTab:Airdrop
         case 2:
             return (
-                <Box sx={{ p: 3 }}>
+                <Box sx={{ p: 3, textAlign: 'left' }}>
                     <Typography style={{ color: 'white', textAlign: 'left' }}>{children}</Typography>
+                    <div style={{ margin: '10px 0px' }}>
+                        <a href='https://csgotoken.org/airdrop/' className='href-blue'>Airdrop</a>
+                    </div>
                 </Box>
             );
+        //BelowTab:Employment
         case 3:
             return (
-                <Box sx={{ p: 3 }}>
+                <Box sx={{ p: 3, textAlign: 'left' }}>
                     <Typography style={{ color: 'white', textAlign: 'left' }}>{children}</Typography>
+                    <div style={{ margin: '10px 0px' }}>
+                        <a href='https://csgotoken.org/employment/' className='href-blue'>Employment</a>
+                    </div>
                 </Box>
             );
+        //BelowTab:Contact-US
         case 4:
             return (
-                <Box sx={{ p: 3 }}>
+                <Box sx={{ p: 3, textAlign: 'left' }}>
                     <Typography style={{ color: 'white', textAlign: 'left' }}>{children}</Typography>
+                    <div style={{ margin: '10px 0px' }}>
+                        <a href='https://csgotoken.org/contact-us/' className='href-blue'>Contact us</a>
+                    </div>
                 </Box>
             );
         default:
@@ -490,11 +578,12 @@ function TabPanel_2(props) {
 
     return (
         <div
-            role="tabpanel"
+            role="tabpanel2"
             hidden={value !== index}
-            id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
+            id={`simple-tabpanel2-${index}`}
+            aria-labelledby={`simple-tab2-${index}`}
             {...other}
+
         >
             {/* {value === index && (
                 <Box sx={{ p: 3 }}>
@@ -553,54 +642,49 @@ const SecondPart = () => {
     };
 
     return (
-        <Grid container item xs={12} md={12} >
-            <Grid item xs={12} md={12} className='m-blur-part' style={{ height: '70%', marginTop: '15px' }} >
+        <Grid container item xs={12} md={12} style={{ marginTop: '15px' }} >
+            <Grid item xs={12} md={12} className='m-blur-part' style={{ height: '70vh', overflow: 'auto' }} >
                 <Box style={{ width: '100%', height: '100%' }}>
-                    <Box >
-                        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                            <Tabs value={firstValue} onChange={handleChange} aria-label="basic tabs example">
-                                <Tab label={<span className={firstValue === 0 ? classes.activeTab : classes.customStyleOnTab}>About Us</span>} {...a11yProps(0)} />
-                                <Tab label={<span className={firstValue === 1 ? classes.activeTab : classes.customStyleOnTab}>News</span>} {...a11yProps(1)} />
-                                <Tab label={<span className={firstValue === 2 ? classes.activeTab : classes.customStyleOnTab}>Roadmap</span>} {...a11yProps(2)} />
-                                <Tab label={<span className={firstValue === 3 ? classes.activeTab : classes.customStyleOnTab}>NFT</span>} {...a11yProps(3)} />
-                                <Tab label={<span className={firstValue === 4 ? classes.activeTab : classes.customStyleOnTab}>Distribution</span>} {...a11yProps(4)} />
-                                <Tab label={<span className={firstValue === 5 ? classes.activeTab : classes.customStyleOnTab}>Pre-sale</span>} {...a11yProps(5)} />
-                                <Tab label={<span className={firstValue === 6 ? classes.activeTab : classes.customStyleOnTab}>Our Partners</span>} {...a11yProps(6)} />
-                                <Tab label={<span className={firstValue === 7 ? classes.activeTab : classes.customStyleOnTab}>Our Team</span>} {...a11yProps(7)} />
-                            </Tabs>
-                        </Box>
-                        <TabPanel_1 value={firstValue} index={0}>
-                            The first metaverse marketplace blockchain-based for CSGO equipment Our goal is to develop a next-generation platform for video game players that allows them to purchase and trade gaming equipment in metaverse world, as well as invest in the cryptocurrency world. We increase the transparency of transactions with the help of blockchain technology
-                        </TabPanel_1>
-                        <TabPanel_1 value={firstValue} index={1}>
-                            no post yet!
-                        </TabPanel_1>
-                        <TabPanel_1 value={firstValue} index={2}>
-                            RoadMap
-                        </TabPanel_1>
-                        <TabPanel_1 value={firstValue} index={3}>
-                            Our team intends to enable users to design their own items such as Skins, Gloves, Agents, ... and sell them as a non-fungible token.
-                        </TabPanel_1>
-                        <TabPanel_1 value={firstValue} index={4}>
-                            Distribution
-                        </TabPanel_1>
-                        <TabPanel_1 value={firstValue} index={5}>
-                            Pre-sale
-                        </TabPanel_1>
-                        <TabPanel_1 value={firstValue} index={6}>
-                            Our Partners
-                        </TabPanel_1>
-                        <TabPanel_1 value={firstValue} index={7} className="customize_scrollbar" style={{ height: '90%', position: 'fixed', overflowX: 'hidden', overflowY: 'scroll' }}>
-                            Our Team
-                        </TabPanel_1>
+                    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                        <Tabs value={firstValue} onChange={handleChange} aria-label="basic tabs example">
+                            <Tab label={<span className={firstValue === 0 ? classes.activeTab : classes.customStyleOnTab}>About Us</span>} {...a11yProps(0)} />
+                            <Tab label={<span className={firstValue === 1 ? classes.activeTab : classes.customStyleOnTab}>Roadmap</span>} {...a11yProps(1)} />
+                            <Tab label={<span className={firstValue === 2 ? classes.activeTab : classes.customStyleOnTab}>NFT</span>} {...a11yProps(2)} />
+                            <Tab label={<span className={firstValue === 3 ? classes.activeTab : classes.customStyleOnTab}>Distribution</span>} {...a11yProps(3)} />
+                            <Tab label={<span className={firstValue === 4 ? classes.activeTab : classes.customStyleOnTab}>Pre-sale</span>} {...a11yProps(4)} />
+                            <Tab label={<span className={firstValue === 5 ? classes.activeTab : classes.customStyleOnTab}>Our Partners</span>} {...a11yProps(5)} />
+                            <Tab label={<span className={firstValue === 6 ? classes.activeTab : classes.customStyleOnTab}>Our Team</span>} {...a11yProps(6)} />
+                        </Tabs>
                     </Box>
+                    <TabPanel_1 value={firstValue} index={0}>
+                        The first metaverse marketplace blockchain-based for CSGO equipment Our goal is to develop a next-generation platform for video game players that allows them to purchase and trade gaming equipment in metaverse world, as well as invest in the cryptocurrency world. We increase the transparency of transactions with the help of blockchain technology
+                    </TabPanel_1>
+                    <TabPanel_1 value={firstValue} index={1}>
+                        RoadMap
+                    </TabPanel_1>
+                    <TabPanel_1 value={firstValue} index={2}>
+                        Our team intends to enable users to design their own items such as Skins, Gloves, Agents, ... and sell them as a non-fungible token.
+                    </TabPanel_1>
+                    <TabPanel_1 value={firstValue} index={3}>
+                        Distribution
+                    </TabPanel_1>
+                    <TabPanel_1 value={firstValue} index={4}>
+                        Pre-sale
+                    </TabPanel_1>
+                    <TabPanel_1 value={firstValue} index={5}>
+                        Our Partners
+                    </TabPanel_1>
+                    <TabPanel_1 value={firstValue} index={6} className="customize_scrollbar" style={{ height: '90%', position: 'fixed', overflowY: 'scroll' }}>
+                        Our Team
+                    </TabPanel_1>
+
                 </Box>
             </Grid>
             {/* Second Part Grid */}
-            <Grid item xs={12} md={12} className='m-blur-part' style={{ height: '24%' }}>
-                <Box sx={{ width: '100%' }}>
+            <Grid item xs={12} md={12} className='m-blur-part' style={{ height: '24vh', overflow: 'auto' }}>
+                <Box>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                        <Tabs value={SecondValue} onChange={handleSecondGridChange} aria-label="basic tabs example">
+                        <Tabs value={SecondValue} onChange={handleSecondGridChange} aria-label="basic tabs example2">
                             <Tab label={<span className={SecondValue === 0 ? classes.activeTab : classes.customStyleOnTab}>CSGO Token Details</span>} {...a11yProps(0)} />
                             <Tab label={<span className={SecondValue === 1 ? classes.activeTab : classes.customStyleOnTab}>Community</span>} {...a11yProps(1)} />
                             <Tab label={<span className={SecondValue === 2 ? classes.activeTab : classes.customStyleOnTab}>Airdrop</span>} {...a11yProps(2)} />
@@ -608,7 +692,7 @@ const SecondPart = () => {
                             <Tab label={<span className={SecondValue === 4 ? classes.activeTab : classes.customStyleOnTab}>Contact Us</span>} {...a11yProps(4)} />
                         </Tabs>
                     </Box>
-                    <TabPanel_2 value={SecondValue} index={0}>
+                    <TabPanel_2 value={SecondValue} index={0} >
                         CSGO Token Details
                     </TabPanel_2>
                     <TabPanel_2 value={SecondValue} index={1}>

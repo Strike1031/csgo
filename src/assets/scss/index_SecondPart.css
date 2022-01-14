@@ -14,3 +14,75 @@
     background-color: rgb(187,187,187);    /* color of the scroll thumb */
     border-radius: 20px;       /* roundness of the scroll thumb */
   }
+
+  .copy-btn {
+    color: white;
+    background-color: transparent !important;
+    padding: 0 15px;
+    border: none;
+}
+
+.copy-btn:hover {
+  cursor: pointer;
+}
+
+.belowTab-community-flexwrap-Parent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+div.belowTab-community-flexwrap-Child {
+  width: 33%;
+  margin: 5px 0px 5px 0px;
+}
+
+@media only screen and (max-width: 972px) {
+  .belowTab-community-flexwrap-Parent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  div.belowTab-community-flexwrap-Child {
+    width: 45%;
+    margin: 5px 0px 5px 0px;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .belowTab-community-flexwrap-Parent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  div.belowTab-community-flexwrap-Child {
+    width: 90%;
+    margin: 5px 0px 5px 0px;
+  }
+}
+
+.href-svgIcon {
+  display: flex;
+  align-items: end;
+  color: white;
+  text-decoration: none;
+}
+
+.href-svgIcon:hover {
+  color: #ff9f08;
+}
+
+.roadmap-step:hover {
+  background-color: rgb(114, 126, 144);
+  width: 1000px;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    display:none;
+}
