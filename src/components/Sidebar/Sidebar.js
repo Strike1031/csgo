@@ -36,34 +36,34 @@ const Sidebar = props => {
     <Box sx={{ display: 'flex' }}>
         <Box variant="permanent" className='m-blur'>
             <List >
-              <ListItemButton component="a" href="#simple-list">
+              <ListItemButton component="a" href="#">
                 <img className="listitem_logoimg" src={myLogoPng}/>
               </ListItemButton>
             </List>
             <hr style={{opacity: 0.5}}/>
             <List >
-              <ListItemButton component="a" href="#simple-list">
+              <ListItemButton component="a" href="#">
                 <img className="listitem_img" src={myPlayPng} />
               </ListItemButton>
             </List>
             <hr style={{opacity: 0.5}}/>
             <List >
-              <ListItemButton component="a" href="#simple-list" >
+              <ListItemButton component="a" href="#" >
                 <img className="listitem_img" src={myInventoryPng}/>
               </ListItemButton>
             </List>
             <List >
-              <ListItemButton component="a" href="#simple-list" >
+              <ListItemButton component="a" href="#" >
                 <img className="listitem_img" src={myWhitepaperPng} />
               </ListItemButton>
             </List>
             <List >
-              <ListItemButton component="a" href="#simple-list">
+              <ListItemButton component="a" href="#">
                 <img className="listitem_img" src={myCooperationPng} />
               </ListItemButton>
             </List>
             <List >
-              <ListItemButton component="a" href="#simple-list">
+              <ListItemButton component="a" href="#">
                 <img className="listitem_img" src={myDonatePng}  />
               </ListItemButton>
             </List>

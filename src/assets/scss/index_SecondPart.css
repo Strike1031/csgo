@@ -81,8 +81,19 @@ div.belowTab-community-flexwrap-Child {
   background-color: rgb(114, 126, 144);
   width: 1000px;
   overflow-x: hidden;
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar {
     display:none;
+}
+
+/*Roadmap Active step: yellow*/
+.css-qivjh0-MuiStepLabel-label.Mui-active {
+    color: #ff9f08 !important;
+    font-weight: bold !important;
+}
+
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+  color: #ff9f08 !important;
 }
