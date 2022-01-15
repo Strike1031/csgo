@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import reactDom from "react-dom";
 import BackVideo from '.././parts/Background/BackVideo';
 
@@ -13,19 +14,33 @@ import ThirdPart from '../components/Index/ThirdPart'
 //This is the first page ==containers sidebar and two blocks--rightside and beyond
 function Index() {
   return (
-    <div className="main-body">
-      <BackVideo />
-      <Grid container spacing={2}>
-        <Grid container item xs={3} md={1}>
-          <Sidebar />
+    <Router>
+      <div className="main-body">
+        <BackVideo />
+        <Grid container spacing={2}>
+          <Grid container item xs={3} md={1}>
+            <Sidebar />
+          </Grid>
+
+          <Routes>
+            <Route path="/" element={ <Indexblock />}>
+             
+            </Route>
+            <Route path="/partnership" element={ <Partnership />}>
+
+            </Route>
+            <Route path="/donate" element={ <Donate />}>
+
+            </Route>
+          </Routes>
         </Grid>
-        {secondblock()}
-      </Grid>
-    </div>
+      </div>
+    </Router>
+
   );
 }
 
-function secondblock() {
+function Indexblock() {
   return (
     <>
       <Grid container item xs={6} md={6}>
@@ -35,6 +50,26 @@ function secondblock() {
         <ThirdPart />
       </Grid>
     </>
+  )
+}
+
+function Partnership() {
+  return (
+    <Grid container item xs={11} md={11}>
+      <div>
+        <h1>23535</h1>
+      </div>
+    </Grid>
+  )
+}
+
+function Donate() {
+  return (
+    <Grid container item xs={11} md={11}>
+    <div>
+      <h1>fjesd</h1>
+    </div>
+  </Grid>
   )
 }
 

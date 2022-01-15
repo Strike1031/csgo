@@ -13,6 +13,8 @@ import myWhitepaperPng from "../../assets/images/whitepaper.png"
 import myCooperationPng from "../../assets/images/cooperation.png"
 import myDonatePng from "../../assets/images/donate.png"
 
+import { Link } from 'react-router-dom';
+
 const useStyles = makeStyles({
   paper: {
     background: 'black',
@@ -34,45 +36,68 @@ const Sidebar = props => {
   return (
 
     <Box sx={{ display: 'flex' }}>
-        <Box variant="permanent" className='m-blur'>
-            <List >
-              <ListItemButton component="a" href="#">
-                <img className="listitem_logoimg" src={myLogoPng}/>
-              </ListItemButton>
-            </List>
-            <hr style={{opacity: 0.5}}/>
-            <List >
-              <ListItemButton component="a" href="#">
-                <img className="listitem_img" src={myPlayPng} />
-              </ListItemButton>
-            </List>
-            <hr style={{opacity: 0.5}}/>
-            <List >
-              <ListItemButton component="a" href="#" >
-                <img className="listitem_img" src={myInventoryPng}/>
-              </ListItemButton>
-            </List>
-            <List >
-              <ListItemButton component="a" href="#" >
-                <img className="listitem_img" src={myWhitepaperPng} />
-              </ListItemButton>
-            </List>
-            <List >
-              <ListItemButton component="a" href="#">
-                <img className="listitem_img" src={myCooperationPng} />
-              </ListItemButton>
-            </List>
-            <List >
-              <ListItemButton component="a" href="#">
-                <img className="listitem_img" src={myDonatePng}  />
-              </ListItemButton>
-            </List>
-            <div className='fixed-bottom'>
-              <Typography paragraph  style={{opacity: 0.5, color: 'white'}}>
-                CSGO Token © 2022
-              </Typography>
-            </div>
-        </Box>
+      <Box variant="permanent" className='m-blur'>
+
+        <List >
+          <Link to="/">
+            <ListItemButton component="a">
+              <img className="listitem_logoimg" src={myLogoPng} />
+            </ListItemButton>
+          </Link>
+        </List>
+
+
+        <hr style={{ opacity: 0.5 }} />
+        <List >
+          <Link to="/">
+            <ListItemButton component="a">
+              <img className="listitem_img" src={myPlayPng} />
+            </ListItemButton>
+          </Link>
+        </List>
+
+
+        <hr style={{ opacity: 0.5 }} />
+        <List >
+          <Link to="/">
+            <ListItemButton component="a" >
+              <img className="listitem_img" src={myInventoryPng} />
+            </ListItemButton>
+          </Link>
+        </List>
+
+
+        <List >
+          <Link to="/">
+            <ListItemButton component="a" >
+              <img className="listitem_img" src={myWhitepaperPng} />
+            </ListItemButton>
+          </Link>
+        </List>
+
+
+        <List >
+          <Link to="/partnership">
+            <ListItemButton component="a" >
+              <img className="listitem_img" src={myCooperationPng} />
+            </ListItemButton>
+          </Link>
+
+        </List>
+        <List >
+          <Link to="/donate">
+            <ListItemButton component="a">
+              <img className="listitem_img" src={myDonatePng} />
+            </ListItemButton>
+          </Link>
+
+        </List>
+        <div className='fixed-bottom'>
+          <Typography paragraph style={{ opacity: 0.5, color: 'white' }}>
+            CSGO Token © 2022
+          </Typography>
+        </div>
+      </Box>
     </Box>
   );
 }

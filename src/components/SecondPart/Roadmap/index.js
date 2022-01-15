@@ -14,6 +14,7 @@ import { fontSize } from '@mui/system';
 const steps = [
     {
         label: 'Q4',
+        year: '2021',
         description: [
             "Building project team",
             "Project development and market research",
@@ -24,6 +25,7 @@ const steps = [
     },
     {
         label: 'Q1',
+        year: '2022',
         description: [
             "Powerful marketing with a professional team",
             "Launching our NFT collection on opensea.io",
@@ -35,6 +37,7 @@ const steps = [
     },
     {
         label: 'Q2',
+        year: '2022',
         description: [
             "Business development",
             "Giving rewards to pre-sale participants such as : NFT items, Membership card,…",
@@ -44,6 +47,7 @@ const steps = [
     },
     {
         label: 'Q3',
+        year: '2022',
         description: [
             "Creation CSGO blockchain",
             "Launching the first metaverse CSGO market that items trade only with cryptocurrencies",
@@ -51,6 +55,7 @@ const steps = [
     },
     {
         label: 'Q4',
+        year: '2022',
         description: [
             "Creating an NFT platform for selling items created by users",
             "Launching Mobile Applications for all devices",
@@ -74,6 +79,9 @@ export default function Roadmap() {
                         <div onClick={() => handleButton(index)}>
                             <StepLabel className='roadmap-step'>
                                 {step.label}
+                                <div>
+                                    <span style={{color: '#424242'}}>{step.year}</span>
+                                </div>
                             </StepLabel>
                             <StepContent>
                                 {
