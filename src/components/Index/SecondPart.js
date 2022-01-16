@@ -44,7 +44,7 @@ import mediumIcon from '../../assets/images/medium.png';
 //     Import Team images
 import nathen_Pruitt from '../../assets/images/team/nathen-Pruitt.jpg';
 import joe_Shepard from '../../assets/images/team/joe-Shepard.jpg';
-import oleksandr_Holovchenko from '../../assets/images/team/oleksandr-Holovchenko.jpg';
+// import oleksandr_Holovchenko from '../../assets/images/team/oleksandr-Holovchenko.jpg';
 import nikita_Semenov from '../../assets/images/team/nikita-Semenov.jpg';
 import zian_Kang from '../../assets/images/team/zian-Kang.jpg';
 import jadon_Mullen from '../../assets/images/team/jadon-Mullen.jpg';
@@ -287,40 +287,25 @@ function switchTabPalel_1(index, children) {
                                     <p style={{ textAlign: 'center', fontWeight: '700', fontSize: '1.5rem' }}>Joe Shepard</p>
                                     <hr className='w-50' />
                                     <p style={{ textAlign: 'center' }}>Co-Founder,&nbsp;CTO</p>
-                                    {/* <Box style={{ textAlign: 'center' }}>
-                                        <a href="https://www.instagram.com/nathen_pruitt/">
-                                            <InstagramIcon style={{ color: '#c13584' }} />
-                                        </a>
-                                    </Box> */}
                                 </Box>
                             </Grid>
                         </Grid>
                         {/* TEAM PARTNERS 1~4*/}
                         <Grid container item x1={12} lg={12} sm={12} md={12} xs={12} style={{ justifyContent: 'center' }}>
-                            <Grid container item xl={3} lg={3} sm={6} md={6} xs={12} style={{ padding: '10px 10px' }}>
+                            {/* <Grid container item xl={3} lg={3} sm={6} md={6} xs={12} style={{ padding: '10px 10px' }}>
                                 <Box>
                                     <img src={oleksandr_Holovchenko} className="img-fitness"></img>
                                     <p style={{ textAlign: 'center', fontWeight: '700', fontSize: '1.5rem' }}>Oleksandr Holovchenko</p>
                                     <hr className='w-50' />
                                     <p style={{ textAlign: 'center' }}>Blockchain Developer and Crypto Advisor</p>
-                                    {/* <Box style={{ textAlign: 'center' }}>
-                                        <a href="https://www.instagram.com/nathen_pruitt/">
-                                            <InstagramIcon style={{ color: '#c13584' }} />
-                                        </a>
-                                    </Box> */}
                                 </Box>
-                            </Grid>
+                            </Grid> */}
                             <Grid container item xl={3} lg={3} sm={6} md={6} xs={12} style={{ padding: '10px 10px' }}>
                                 <Box>
                                     <img src={nikita_Semenov} className="img-fitness"></img>
                                     <p style={{ textAlign: 'center', fontWeight: '700', fontSize: '1.5rem' }}>Nikita Semenov</p>
                                     <hr className='w-50' />
                                     <p style={{ textAlign: 'center' }}>Web, Unity and Blockchain Developer</p>
-                                    {/* <Box style={{ textAlign: 'center' }}>
-                                        <a href="https://www.instagram.com/nathen_pruitt/">
-                                            <InstagramIcon style={{ color: '#c13584' }} />
-                                        </a>
-                                    </Box> */}
                                 </Box>
                             </Grid>
                             <Grid container item xl={3} lg={3} sm={6} md={6} xs={12} style={{ padding: '10px 10px' }}>

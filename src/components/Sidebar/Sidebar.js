@@ -2,6 +2,7 @@ import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import List from '@mui/material/List';
 import Box from '@mui/material/Box';
+import { Tooltip } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { makeStyles } from '@mui/styles';
 
@@ -12,6 +13,7 @@ import myInventoryPng from "../../assets/images/inventory.png"
 import myWhitepaperPng from "../../assets/images/whitepaper.png"
 import myCooperationPng from "../../assets/images/cooperation.png"
 import myDonatePng from "../../assets/images/donate.png"
+import myWhitePaper from '../../assets/pdf/white-paper.pdf';
 
 import { Link } from 'react-router-dom';
 
@@ -40,7 +42,7 @@ const Sidebar = props => {
 
         <List >
           <Link to="/">
-            <ListItemButton component="a">
+            <ListItemButton >
               <img className="listitem_logoimg" src={myLogoPng} />
             </ListItemButton>
           </Link>
@@ -50,9 +52,12 @@ const Sidebar = props => {
         <hr style={{ opacity: 0.5 }} />
         <List >
           <Link to="/">
-            <ListItemButton component="a">
-              <img className="listitem_img" src={myPlayPng} />
-            </ListItemButton>
+            <Tooltip title="Buy" placement='right'>
+              <ListItemButton >
+                <img className="listitem_img" src={myPlayPng} />
+              </ListItemButton>
+            </Tooltip>
+
           </Link>
         </List>
 
@@ -60,35 +65,45 @@ const Sidebar = props => {
         <hr style={{ opacity: 0.5 }} />
         <List >
           <Link to="/">
-            <ListItemButton component="a" >
-              <img className="listitem_img" src={myInventoryPng} />
-            </ListItemButton>
+            <Tooltip title="Marketplace (coming soon) " placement='right'>
+              <ListItemButton >
+                <img className="listitem_img" src={myInventoryPng} />
+              </ListItemButton>
+            </Tooltip>
+
           </Link>
         </List>
 
 
         <List >
-          <Link to="/">
-            <ListItemButton component="a" >
-              <img className="listitem_img" src={myWhitepaperPng} />
-            </ListItemButton>
-          </Link>
+            <Tooltip title="Whitepaper" placement='right'>
+              <ListItemButton component="a" href={myWhitePaper} >
+                <img className="listitem_img" src={myWhitepaperPng} />
+              </ListItemButton>
+            </Tooltip>
         </List>
+
 
 
         <List >
           <Link to="/partnership">
-            <ListItemButton component="a" >
-              <img className="listitem_img" src={myCooperationPng} />
-            </ListItemButton>
+            <Tooltip title="Partnership" placement='right'>
+              <ListItemButton  >
+                <img className="listitem_img" src={myCooperationPng} />
+              </ListItemButton>
+            </Tooltip>
+
           </Link>
 
         </List>
         <List >
           <Link to="/donate">
-            <ListItemButton component="a">
-              <img className="listitem_img" src={myDonatePng} />
-            </ListItemButton>
+            <Tooltip title="Donate" placement='right'>
+              <ListItemButton >
+                <img className="listitem_img" src={myDonatePng} />
+              </ListItemButton>
+            </Tooltip>
+
           </Link>
 
         </List>

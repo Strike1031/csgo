@@ -94,4 +94,30 @@ img.listitem_logoimg {
     padding-right: 0px;
 }
 
+.mysubmitButton {
+    background-color: #ff9f08 !important; 
+    color: white !important;
+}
+
+.mysubmitButton:hover {
+    background-color: rgb(248,196,112) !important; 
+    color: white !important;
+}
+
+/* .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root {
+    font-size: 0 !important;
+} */
+/*************For reduce the height of TEXTFIELD in Partnership tab and Donate tab*/
+
+.css-10botns-MuiInputBase-input-MuiFilledInput-input {
+    padding: 3px !important;
+}
+
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 3px !important;
+}
+
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 3px !important;
+}
 
