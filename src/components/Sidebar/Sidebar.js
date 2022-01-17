@@ -7,12 +7,12 @@ import Typography from '@mui/material/Typography';
 import { makeStyles } from '@mui/styles';
 
 import { ListItemButton } from '@mui/material';
-import myLogoPng from "../../assets/images/cslogo.png"
-import myPlayPng from "../../assets/images/play.png"
-import myInventoryPng from "../../assets/images/inventory.png"
-import myWhitepaperPng from "../../assets/images/whitepaper.png"
-import myCooperationPng from "../../assets/images/cooperation.png"
-import myDonatePng from "../../assets/images/donate.png"
+import myLogoPng from "../../assets/images/cslogo.png";
+import myPlayPng from "../../assets/images/play.png";
+import myInventoryPng from "../../assets/images/inventory.png";
+import myWhitepaperPng from "../../assets/images/whitepaper.png";
+import myCooperationPng from "../../assets/images/cooperation.png";
+import myDonatePng from "../../assets/images/donate.png";
 import myWhitePaper from '../../assets/pdf/white-paper.pdf';
 
 import { Link } from 'react-router-dom';
